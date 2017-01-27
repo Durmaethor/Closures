@@ -102,13 +102,20 @@ function is responsible for decrementing the value by one. You will need to use
 the module pattern to achieve this. */
 
 function counterFactory(value) {
-
-  // Code here.
-
+  var currentValue = value;
 
   return {
+    inc: function() {
+      currentValue += 1;
+      return currentValue;
+    },
+    dec: function(){
+      currentValue += -1;
+      return currentValue;
+      },
+    }
   }
-}
+
 
 
 counter = counterFactory(10);
@@ -134,11 +141,12 @@ function motivation(firstname, lastname){
 
   var welcomeText = 'You\'re doing awesome, keep it up ';
 
-  // code message function here.
+  function message() {
+    return welcomeText + firstname + ' ' + lastName;
+  }
 
 
-  //Uncommment this to return the value of your invoked message function
-  //return message();
+  return message();
 
 }
 
