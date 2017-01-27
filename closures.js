@@ -216,13 +216,14 @@ then 3, etc). Run this code in your console to see what the output is. */
 // To make this code work you will need to create a new scope for every iteration.
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i);
-    }, i * 1000)
+    setTimeout(newScope(i), i * 1000) 
+ 
   }
 
   function newScope(i) {
+    return function() {
     console.log(i)
+    }
   }
 }
 timeOutCounter();
