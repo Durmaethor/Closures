@@ -142,7 +142,7 @@ function motivation(firstname, lastname){
   var welcomeText = 'You\'re doing awesome, keep it up ';
 
   function message() {
-    return welcomeText + firstname + ' ' + lastName;
+    return welcomeText + firstname + ' ' + lastname + '.';
   }
 
 
@@ -185,13 +185,15 @@ var module = (function() {
 	// outside our lexical scope
 
   return {
-    // Code here.
+  publicMethod: function(){
+      return privateMethod();
+  }
   };
 
 })();
 
 // Uncomment this after you create your public method
-//   module.publicMethod();
+   module.publicMethod();
 
 
 
